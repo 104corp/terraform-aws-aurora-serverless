@@ -1,5 +1,5 @@
 /**
-  * # tf-aws-aurora
+  * # tf-aws-aurora-serverless
   *
   * AWS Aurora DB Cluster for Serverless Terraform Module.
   *

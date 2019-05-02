@@ -1,4 +1,4 @@
-# tf-aws-aurora
+# tf-aws-aurora-serverless
 
 AWS Aurora DB Cluster for Serverless Terraform Module.
 
@@ -193,7 +193,6 @@ resource "aws_rds_cluster_parameter_group" "aurora_cluster_postgres96_parameter_
 
 | Name | Description |
 |------|-------------|
-| all\_instance\_endpoints\_list | Comma separated list of all DB instance endpoints running in cluster |
 | cluster\_endpoint | The 'writer' endpoint for the cluster |
 | cluster\_identifier | The ID of the RDS Cluster |
 | reader\_endpoint | A read-only endpoint for the Aurora cluster, automatically load-balanced across replicas |
@@ -202,10 +201,10 @@ resource "aws_rds_cluster_parameter_group" "aurora_cluster_postgres96_parameter_
 
 Terraform modules on the Terraform Module Registry are open projects, and community contributions are essential for keeping them great. Please follow our guidelines when contributing changes.
 
-For more information, see our [module contribution guide](https://registry.terraform.io/modules/104corp/aurora/aws/).
+For more information, see our [module contribution guide](https://registry.terraform.io/modules/104corp/aurora-serverless/aws/).
 
 ## Contributors
 
 The project basic fork of [claranet/terraform-aws-aurora](https://github.com/claranet/terraform-aws-aurora)
 
-To see who's already involved, see the list of [contributors](https://github.com/104corp/terraform-aws-aurora/graphs/contributors).
+To see who's already involved, see the list of [contributors](https://github.com/104corp/terraform-aws-aurora-serverless/graphs/contributors).

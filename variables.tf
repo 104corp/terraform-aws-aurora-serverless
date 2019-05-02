@@ -88,7 +88,7 @@ variable "auto_pause" {
 
 variable "max_capacity" {
   type        = "string"
-  default     = "6"
+  default     = "8"
   description = "The max capacity for database"
 }
 

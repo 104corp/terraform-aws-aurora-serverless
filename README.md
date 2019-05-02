@@ -173,7 +173,7 @@ resource "aws_rds_cluster_parameter_group" "aurora_cluster_postgres96_parameter_
 | final\_snapshot\_identifier | The name to use when creating a final snapshot on cluster destroy, appends a random 8 digits to name to ensure it's unique too. | string | `"final"` | no |
 | iam\_database\_authentication\_enabled | Whether to enable IAM database authentication for the RDS Cluster | string | `"false"` | no |
 | identifier\_prefix | Prefix for cluster identifier | string | `""` | no |
-| max\_capacity | The max capacity for database | string | `"5"` | no |
+| max\_capacity | The max capacity for database | string | `"6"` | no |
 | min\_capacity | The min capacity for database | string | `"2"` | no |
 | monitoring\_interval | The interval (seconds) between points when Enhanced Monitoring metrics are collected | string | `"0"` | no |
 | name | Name given to DB subnet group | string | n/a | yes |

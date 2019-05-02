@@ -9,7 +9,6 @@
   *  - An Aurora DB cluster
   *  - Optionally RDS 'Enhanced Monitoring' + associated required IAM role/policy (by simply setting the `monitoring_interval` param to > `0`
   *  - Optionally sensible alarms to SNS (high CPU, high connections, slow replication)
-  *  - Optionally configure autoscaling for read replicas (MySQL clusters only)
   *
   * ## Contributing
   *

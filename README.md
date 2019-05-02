@@ -24,6 +24,7 @@ may not (depending on the parameter being altered)
 
 ### Aurora 1.x (MySQL 5.6)
 
+```hcl
 resource "aws_sns_topic" "db_alarms_56" {
   name = "aurora-db-alarms-56"
 }
@@ -60,6 +61,7 @@ resource "aws_rds_cluster_parameter_group" "aurora_cluster_56_parameter_group" {
   family      = "aurora5.6"
   description = "test-aurora-56-cluster-parameter-group"
 }
+```
 
 ### Aurora 2.x (MySQL 5.7)
 
@@ -102,6 +104,7 @@ resource "aws_rds_cluster_parameter_group" "aurora_57_cluster_parameter_group" {
   description = "test-aurora-57-cluster-parameter-group"
 }
 ```
+
 ### Aurora PostgreSQL
 
 ```hcl
@@ -145,13 +148,22 @@ resource "aws_rds_cluster_parameter_group" "aurora_cluster_postgres96_parameter_
 }
 ```
 
+## Development
+
+Terraform modules on the Terraform Module Registry are open projects, and community contributions are essential for keeping them great. Please follow our guidelines when contributing changes.
+
+For more information, see our [module contribution guide](https://registry.terraform.io/modules/104corp/aurora-serverless/aws/).
+
+## Contributors
+
+To see who's already involved, see the list of [contributors](https://github.com/104corp/terraform-aws-aurora-serverless/graphs/contributors).
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | apply\_immediately | Determines whether or not any DB modifications are applied immediately, or during the maintenance window | string | `"false"` | no |
 | auto\_minor\_version\_upgrade | Determines whether minor engine upgrades will be performed automatically in the maintenance window | string | `"true"` | no |
-| auto\_pause | When to perform DB auto pause | string | `"true"` | no |
 | auto\_pause | When to perform DB auto pause | string | `"true"` | no |
 | azs | List of AZs to use | list | n/a | yes |
 | backup\_retention\_period | How long to keep backups for (in days) | string | `"7"` | no |
@@ -172,12 +184,13 @@ resource "aws_rds_cluster_parameter_group" "aurora_cluster_postgres96_parameter_
 | final\_snapshot\_identifier | The name to use when creating a final snapshot on cluster destroy, appends a random 8 digits to name to ensure it's unique too. | string | `"final"` | no |
 | iam\_database\_authentication\_enabled | Whether to enable IAM database authentication for the RDS Cluster | string | `"false"` | no |
 | identifier\_prefix | Prefix for cluster identifier | string | `""` | no |
-| max\_capacity | The max capacity for database | string | `"6"` | no |
+| max\_capacity | The max capacity for database | string | `"8"` | no |
 | min\_capacity | The min capacity for database | string | `"2"` | no |
 | monitoring\_interval | The interval (seconds) between points when Enhanced Monitoring metrics are collected | string | `"0"` | no |
 | name | Name given to DB subnet group | string | n/a | yes |
 | password | Master DB password | string | n/a | yes |
 | performance\_insights\_enabled | Whether to enable Performance Insights | string | `"false"` | no |
+| port | The port on which to accept connections | string | `"3306"` | no |
 | preferred\_backup\_window | When to perform DB backups | string | `"02:00-03:00"` | no |
 | preferred\_maintenance\_window | When to perform DB maintenance | string | `"sun:05:00-sun:06:00"` | no |
 | publicly\_accessible | Whether the DB should have a public IP address | string | `"false"` | no |
@@ -196,12 +209,3 @@ resource "aws_rds_cluster_parameter_group" "aurora_cluster_postgres96_parameter_
 | cluster\_identifier | The ID of the RDS Cluster |
 | reader\_endpoint | A read-only endpoint for the Aurora cluster, automatically load-balanced across replicas |
 
-## Development
-
-Terraform modules on the Terraform Module Registry are open projects, and community contributions are essential for keeping them great. Please follow our guidelines when contributing changes.
-
-For more information, see our [module contribution guide](https://registry.terraform.io/modules/104corp/aurora-serverless/aws/).
-
-## Contributors
-
-To see who's already involved, see the list of [contributors](https://github.com/104corp/terraform-aws-aurora-serverless/graphs/contributors).

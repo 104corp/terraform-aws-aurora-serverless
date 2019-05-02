@@ -86,12 +86,6 @@ variable "auto_pause" {
   description = "When to perform DB auto pause"
 }
 
-variable "auto_pause" {
-  type        = "string"
-  default     = "true"
-  description = "When to perform DB auto pause"
-}
-
 variable "max_capacity" {
   type        = "string"
   default     = "5"
@@ -102,6 +96,12 @@ variable "min_capacity" {
   type        = "string"
   default     = "2"
   description = "The min capacity for database"
+}
+
+variable "port" {
+  type        = "string"
+  default     = "3306"
+  description = "The port on which to accept connections"
 }
 
 variable "apply_immediately" {

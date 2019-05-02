@@ -205,6 +205,4 @@ For more information, see our [module contribution guide](https://registry.terra
 
 ## Contributors
 
-The project basic fork of [claranet/terraform-aws-aurora](https://github.com/claranet/terraform-aws-aurora)
-
 To see who's already involved, see the list of [contributors](https://github.com/104corp/terraform-aws-aurora-serverless/graphs/contributors).

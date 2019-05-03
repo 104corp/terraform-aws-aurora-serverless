@@ -42,6 +42,7 @@ variable "publicly_accessible" {
 
 variable "database_name" {
   type        = "string"
+  default     = ""
   description = "Master DB name"
 }
 

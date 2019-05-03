@@ -175,6 +175,7 @@ To see who's already involved, see the list of [contributors](https://github.com
 | cw\_max\_cpu | CPU threshold above which to alarm | string | `"85"` | no |
 | cw\_max\_replica\_lag | Maximum Aurora replica lag in milliseconds above which to alarm | string | `"2000"` | no |
 | cw\_sns\_topic | An SNS topic to publish CloudWatch alarms to | string | `"false"` | no |
+| database\_name | Master DB name | string | `""` | no |
 | db\_cluster\_parameter\_group\_name | The name of a DB Cluster parameter group to use | string | `"default.aurora5.6"` | no |
 | db\_parameter\_group\_name | The name of a DB parameter group to use | string | `"default.aurora5.6"` | no |
 | enabled | Whether the database resources should be created | string | `"true"` | no |

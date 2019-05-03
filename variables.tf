@@ -40,6 +40,11 @@ variable "publicly_accessible" {
   description = "Whether the DB should have a public IP address"
 }
 
+variable "database_name" {
+  type        = "string"
+  description = "Master DB name"
+}
+
 variable "username" {
   default     = "root"
   description = "Master DB username"

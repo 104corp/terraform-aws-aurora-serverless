@@ -171,6 +171,7 @@ resource "aws_rds_cluster" "default" {
   engine_version = "${var.engine_version}"
   engine_mode    = "serverless"
 
+  database_name                       = "${var.database_name}"
   master_username                     = "${var.username}"
   master_password                     = "${var.password}"
   final_snapshot_identifier           = "${var.final_snapshot_identifier}-${random_id.server.hex}"

@@ -1,5 +1,7 @@
 /**
-  * # tf-aws-aurora-serverless
+  * # AWS Aurora Serverless Terraform module
+  *
+  * ![Build Status](https://travis-ci.com/104corp/terraform-aws-aurora-serverless.svg?branch=master) ![LicenseBadge](https://img.shields.io/github/license/104corp/terraform-aws-aurora-serverless.svg)
   *
   * AWS Aurora DB Cluster for Serverless Terraform Module.
   *
@@ -9,6 +11,10 @@
   *  - An Aurora DB cluster
   *  - Optionally RDS 'Enhanced Monitoring' + associated required IAM role/policy (by simply setting the `monitoring_interval` param to > `0`
   *  - Optionally sensible alarms to SNS (high CPU, high connections, slow replication)
+  *
+  * ## Terraform version
+  *
+  * Terraform version 0.10.3 or newer is required for this module to work.
   *
   * ## Contributing
   *

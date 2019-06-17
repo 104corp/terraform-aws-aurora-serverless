@@ -223,3 +223,18 @@ variable "enabled" {
   default     = true
   description = "Whether the database resources should be created"
 }
+
+variable "tags" {
+  type        = "map"
+  default     = {}
+  description = "A set of tags to attach to the created resources"
+}
+
+locals {
+  default_tags = {
+    "envname" = "${var.envname}"
+    "envtype" = "${var.envtype}"
+  }
+
+  tags = "${merge(var.tags, local.default_tags)}"
+}

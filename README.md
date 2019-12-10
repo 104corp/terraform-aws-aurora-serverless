@@ -207,6 +207,7 @@ To see who's already involved, see the list of [contributors](https://github.com
 | storage\_encrypted | Specifies whether the underlying storage layer should be encrypted | string | `"true"` | no |
 | subnets | List of subnet IDs to use | list | n/a | yes |
 | username | Master DB username | string | `"root"` | no |
+| tags | Tags for the created resources | map | `{envname="${var.envname}", envtype="${var.envtype}"}` | no |
 
 ## Outputs
 

@@ -203,8 +203,6 @@ resource "aws_rds_cluster" "default" {
   lifecycle {
     create_before_destroy = true
   }
-
-  tags = "${local.tags}"
 }
 
 // DB Subnet Group creation
@@ -213,8 +211,6 @@ resource "aws_db_subnet_group" "main" {
   name        = "${var.name}"
   description = "Group of DB subnets"
   subnet_ids  = ["var.subnets"]
-
-  tags = "${local.tags}"
 }
 
 // Geneate an ID when an environment is initialised

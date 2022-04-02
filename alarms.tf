@@ -12,7 +12,7 @@ resource "aws_cloudwatch_metric_alarm" "alarm_rds_DatabaseConnections_writer" {
   alarm_actions       = ["${var.cw_sns_topic}"]
   ok_actions          = ["${var.cw_sns_topic}"]
 
-  dimensions {
+  dimensions = {
     DBClusterIdentifier = "${aws_rds_cluster.default[count.index].id}"
     Role                = "WRITER"
   }
@@ -32,7 +32,7 @@ resource "aws_cloudwatch_metric_alarm" "alarm_rds_CPU_writer" {
   alarm_actions       = ["${var.cw_sns_topic}"]
   ok_actions          = ["${var.cw_sns_topic}"]
 
-  dimensions {
+  dimensions = {
     DBClusterIdentifier = "${aws_rds_cluster.default[count.index].id}"
     Role                = "WRITER"
   }

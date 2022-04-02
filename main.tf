@@ -208,7 +208,7 @@ resource "aws_rds_cluster" "default" {
 // DB Subnet Group creation
 resource "aws_db_subnet_group" "main" {
   count       = "${var.enabled ? 1 : 0}"
-  name        = "${var.name}"
+  name        = "var.name"
   description = "Group of DB subnets"
   subnet_ids  = ["var.subnets"]
 }

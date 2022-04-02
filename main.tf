@@ -171,7 +171,7 @@
 resource "aws_rds_cluster" "default" {
   count              = "${var.enabled ? 1 : 0}"
   cluster_identifier = "${var.identifier_prefix != "" ? format("%s-cluster", var.identifier_prefix) : format("%s-aurora-cluster", var.envname)}"
-  availability_zones = ["${var.azs}"]
+  availability_zones = ["var.azs"]
 
   engine         = "aurora"
   engine_version = "${var.engine_version}"
@@ -180,7 +180,7 @@ resource "aws_rds_cluster" "default" {
   database_name                       = "${var.database_name}"
   master_username                     = "${var.username}"
   master_password                     = "${var.password}"
-  final_snapshot_identifier           = "${var.final_snapshot_identifier}-${random_id.server.hex}"
+  final_snapshot_identifier           = "${var.final_snapshot_identifier}-${random_id.server[index.count].hex}"
   skip_final_snapshot                 = "${var.skip_final_snapshot}"
   backup_retention_period             = "${var.backup_retention_period}"
   preferred_backup_window             = "${var.preferred_backup_window}"
@@ -212,7 +212,7 @@ resource "aws_db_subnet_group" "main" {
   count       = "${var.enabled ? 1 : 0}"
   name        = "${var.name}"
   description = "Group of DB subnets"
-  subnet_ids  = ["${var.subnets}"]
+  subnet_ids  = ["var.subnets"]
 
   tags = "${local.tags}"
 }
@@ -245,11 +245,11 @@ data "aws_iam_policy_document" "monitoring-rds-assume-role-policy" {
 resource "aws_iam_role" "rds-enhanced-monitoring" {
   count              = "${var.enabled && var.monitoring_interval > 0 ? 1 : 0}"
   name_prefix        = "rds-enhanced-mon-${var.envname}-"
-  assume_role_policy = "${data.aws_iam_policy_document.monitoring-rds-assume-role-policy.json}"
+  assume_role_policy = "${data.aws_iam_policy_document.monitoring-rds-assume-role-policy[count.index].json}"
 }
 
 resource "aws_iam_role_policy_attachment" "rds-enhanced-monitoring-policy-attach" {
   count      = "${var.enabled && var.monitoring_interval > 0 ? 1 : 0}"
-  role       = "${aws_iam_role.rds-enhanced-monitoring.name}"
+  role       = "${aws_iam_role.rds-enhanced-monitoring[count.index].name}"
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole"
 }
